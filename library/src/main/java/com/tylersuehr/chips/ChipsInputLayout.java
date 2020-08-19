@@ -636,7 +636,8 @@ public class ChipsInputLayout extends MaxHeightScrollView
             // To show our filterable recycler view, we need to make sure
             // our ChipsInputLayout has already been displayed on the screen
             // so we can access its root view
-            ViewGroup rootView = (ViewGroup)getRootView();
+            //ViewGroup rootView = (ViewGroup)getRootView();
+
             RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
                     Utils.getWindowWidth(getContext()),
                     ViewGroup.LayoutParams.MATCH_PARENT
@@ -649,6 +650,12 @@ public class ChipsInputLayout extends MaxHeightScrollView
             }
             rootView.addView(mFilteredRecycler, lp);
         }
+    }
+
+    ViewGroup rootView;
+    public void setRootView(ViewGroup rootView)
+    {
+        this.rootView=rootView;
     }
 
     private void hideKeyboard() {
