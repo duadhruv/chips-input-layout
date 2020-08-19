@@ -638,6 +638,11 @@ public class ChipsInputLayout extends MaxHeightScrollView
             // so we can access its root view
             //ViewGroup rootView = (ViewGroup)getRootView();
 
+            if(rootView==null)
+            {
+                rootView=(ViewGroup)getRootView();
+            }
+
             RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
                     Utils.getWindowWidth(getContext()),
                     ViewGroup.LayoutParams.MATCH_PARENT
@@ -652,7 +657,7 @@ public class ChipsInputLayout extends MaxHeightScrollView
         }
     }
 
-    ViewGroup rootView;
+    ViewGroup rootView=null;
     public void setRootView(ViewGroup rootView)
     {
         this.rootView=rootView;
