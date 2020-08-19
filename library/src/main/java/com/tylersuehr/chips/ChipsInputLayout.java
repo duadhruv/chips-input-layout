@@ -631,7 +631,7 @@ public class ChipsInputLayout extends MaxHeightScrollView
             // Create a new filterable recycler view
             mFilteredRecycler = new FilterableRecyclerView(getContext());
             mFilteredRecycler.setChipOptions(mOptions);
-            mFilteredRecycler.setup(mFilteredAdapter, this);
+            mFilteredRecycler.setup(mFilteredAdapter, this,extraMargin);
 
             // To show our filterable recycler view, we need to make sure
             // our ChipsInputLayout has already been displayed on the screen
@@ -658,10 +658,16 @@ public class ChipsInputLayout extends MaxHeightScrollView
     }
 
     ViewGroup rootView=null;
+    int extraMargin=0;
     public void setRootView(ViewGroup rootView)
     {
         this.rootView=rootView;
         //loadFilterableRecycler();
+    }
+
+    public void setExtraMargin (int extrMargin)
+    {
+        this.extraMargin=extrMargin;
     }
 
     private void hideKeyboard() {

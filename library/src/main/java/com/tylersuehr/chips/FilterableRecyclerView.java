@@ -48,11 +48,13 @@ class FilterableRecyclerView extends RecyclerView implements ChipComponent {
         }
     }
 
+    int extraMargin=0;
     <T extends RecyclerView.Adapter & Filterable>
-    void setup(T adapter, ChipsInputLayout chipsInputLayout) {
+    void setup(T adapter, ChipsInputLayout chipsInputLayout,int extraMargin) {
         setAdapter(adapter);
         mFilter = adapter.getFilter();
         mChipsInput = chipsInputLayout;
+        this.extraMargin=extraMargin;
     }
 
     /**
@@ -92,7 +94,7 @@ class FilterableRecyclerView extends RecyclerView implements ChipComponent {
         mChipsInput.getLocationInWindow(coord);
 
         ViewGroup.MarginLayoutParams lp = (MarginLayoutParams)getLayoutParams();
-        lp.topMargin = coord[1] + mChipsInput.getHeight();
+        lp.topMargin = coord[1] + mChipsInput.getHeight()+extraMargin;
 
         // Height of the keyboard
         lp.bottomMargin = rootView.getHeight() - r.bottom;
