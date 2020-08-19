@@ -656,7 +656,7 @@ public class ChipsInputLayout extends MaxHeightScrollView
     public void setRootView(ViewGroup rootView)
     {
         this.rootView=rootView;
-        loadFilterableRecycler();
+        //loadFilterableRecycler();
     }
 
     private void hideKeyboard() {
